@@ -1,0 +1,11 @@
+{
+  "name": "Upcoming London Concerts",
+  "version": "1.0.0",
+  "description": "This is an extension to look up concerts coming to Toronto",
+  "manifest_version": 3,
+  "author": "Tom O'Hanlon",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Upcoming London Concerts"
+  }
+}

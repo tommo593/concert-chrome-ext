@@ -1,6 +1,6 @@
 async function fetchData() {
   const url =
-    "https://concerts-artists-events-tracker.p.rapidapi.com/location?name=London&minDate=2024-06-03&maxDate=2026-07-31&page=2";
+    "https://concerts-artists-events-tracker.p.rapidapi.com/location?name=London&minDate=2024-10-01&maxDate=2026-06-30&page=1";
   const options = {
     method: "GET",
     headers: {
@@ -11,15 +11,14 @@ async function fetchData() {
 
   try {
     const response = await fetch(url, options);
-    const result = await response.text();
+    const result = await response.json();
     console.log(result);
+    document.getElementById("concerts").innerHTML = result.data
+      .map((item) => `<li>${item.name}</li>`)
+      .join("");
   } catch (error) {
     console.error(error);
   }
-
-  document.getElementById("concerts").innerHTML = record.data.map((item) =>
-    `<li>${item.name}</li>`.join("")
-  );
 }
 
 fetchData();
